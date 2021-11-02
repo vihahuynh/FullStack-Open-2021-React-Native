@@ -2,7 +2,9 @@ import React from "react";
 import Constants from "expo-constants";
 import { StyleSheet, View } from "react-native";
 import RepositoryList from "./RepositoryList";
+import SignIn from "./SignIn";
 import AppBar from "./AppBar";
+import { Switch, Route, Redirect } from "react-router-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -15,9 +17,16 @@ const styles = StyleSheet.create({
 const Main = () => {
   return (
     <View style={styles.container}>
-      {/* <Text>Rate Repository Application</Text> */}
       <AppBar />
-      <RepositoryList />
+      <Switch>
+        <Route path="/" exact>
+          <RepositoryList />
+        </Route>
+        <Route path="/signin">
+          <SignIn />
+        </Route>
+        <Redirect to="/" />
+      </Switch>
     </View>
   );
 };
