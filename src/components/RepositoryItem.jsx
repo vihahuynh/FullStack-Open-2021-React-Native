@@ -24,7 +24,7 @@ const RepositoryItem = ({ item }) => {
     },
 
     description: {
-      color: "grey",
+      color: theme.colors.textSecondary,
       flexShrink: 1,
       flexWrap: "wrap",
       marginBottom: 10,

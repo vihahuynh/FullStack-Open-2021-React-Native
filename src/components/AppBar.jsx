@@ -2,18 +2,20 @@ import React from "react";
 import { Text, View, StyleSheet, ScrollView } from "react-native";
 import { Link } from "react-router-native";
 import Constants from "expo-constants";
+import theme from "../theme";
 
 const styles = StyleSheet.create({
   container: {
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: "#24292e",
-    fontSize: 30,
+    backgroundColor: theme.colors.textPrimary,
+    fontSize: theme.fontSizes.nav,
     paddingLeft: 10,
     paddingBottom: 18,
   },
   whiteText: {
+    fontFamily: theme.fontFamily,
     color: "white",
-    fontWeight: "700",
+    fontWeight: theme.fontWeights.bold,
     marginRight: 15,
   },
 });
