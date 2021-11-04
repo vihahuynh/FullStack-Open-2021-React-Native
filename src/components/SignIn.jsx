@@ -2,9 +2,12 @@ import React from "react";
 import { Text, Pressable, View, StyleSheet } from "react-native";
 import { Formik } from "formik";
 import FormikTextInput from "./FormikTextInput";
+import { useApolloClient } from "@apollo/client";
+import { useHistory } from "react-router-native";
+import useSignIn from "../hooks/useSignIn";
+import useAuthStorage from "../hooks/useAuthStorage";
 import theme from "../theme";
 import * as yup from "yup";
-import useSignIn from "../hooks/useSignIn";
 
 const validationSchema = yup.object().shape({
   username: yup.string().required("Username is required"),
@@ -53,6 +56,9 @@ const SignInForm = ({ onSubmit }) => {
 
 const SignIn = () => {
   const [authorize] = useSignIn();
+  const authStorage = useAuthStorage();
+  const apolloClient = useApolloClient();
+  const history = useHistory();
 
   const onSubmit = async (values) => {
     try {
@@ -60,10 +66,9 @@ const SignIn = () => {
         username: values.username,
         password: values.password,
       });
-      console.log(
-        `Signed in with username: ${values.username} and password: ${values.password}`
-      );
-      console.log("accessToken: ", accessToken);
+      authStorage.setAccessToken(accessToken);
+      apolloClient.resetStore();
+      history.push("/");
     } catch (error) {
       console.error(error);
     }

@@ -11,10 +11,10 @@ class AuthStorage {
   }
 
   async setAccessToken(accessToken) {
-    await AsyncStorage.setItem("auth:accessToken", accessToken);
+    await AsyncStorage.setItem("auth:accessToken", JSON.stringify(accessToken));
   }
 
-  removeAccessToken() {
+  async removeAccessToken() {
     await AsyncStorage.removeItem("auth:accessToken");
   }
 }
