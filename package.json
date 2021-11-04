@@ -22,7 +22,8 @@
     "react-native-web": "^0.17.5",
     "react-router-native": "^5.2.1",
     "svgo": "^2.8.0",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "@react-native-async-storage/async-storage": "~1.15.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
