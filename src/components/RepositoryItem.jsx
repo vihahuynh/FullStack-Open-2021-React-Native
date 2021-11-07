@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import theme from "../theme";
 import Number from "./Number";
+import * as Linking from "expo-linking";
 
-const RepositoryItem = ({ item }) => {
+const RepositoryItem = ({ item, showLink = false }) => {
   const styles = StyleSheet.create({
     itemContainer: {
       padding: 10,
@@ -54,6 +55,19 @@ const RepositoryItem = ({ item }) => {
       alignItems: "flex-start",
       flex: 1,
     },
+
+    githubButton: {
+      backgroundColor: theme.colors.primary,
+      color: "white",
+      padding: 5,
+      paddingLeft: 12,
+      paddingRight: 12,
+      borderRadius: 5,
+      marginBottom: 20,
+      marginTop: 20,
+      textAlign: "center",
+      fontWeight: theme.fontWeights.bold,
+    },
   });
 
   return (
@@ -85,6 +99,11 @@ const RepositoryItem = ({ item }) => {
         <Number num={item.reviewCount} desc="Reviews" />
         <Number num={item.ratingAverage} desc="Rating" />
       </View>
+      {showLink && (
+        <Pressable onPress={() => Linking.openURL(item.url)}>
+          <Text style={styles.githubButton}>Open in Github</Text>
+        </Pressable>
+      )}
     </View>
   );
 };
