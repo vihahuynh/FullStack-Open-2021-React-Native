@@ -6,9 +6,7 @@ describe("SignIn", () => {
   describe("SignInContainer", () => {
     it("calls onSubmit function with correct arguments when a valid form is submitted", async () => {
       const onSubmit = jest.fn();
-      const { debug, getByTestId } = render(
-        <SignInContainer onSubmit={onSubmit} />
-      );
+      const { getByTestId } = render(<SignInContainer onSubmit={onSubmit} />);
       fireEvent.changeText(getByTestId("usernameField"), "Nemo");
       fireEvent.changeText(getByTestId("passwordField"), "12345");
       fireEvent.press(getByTestId("submitButton"));
