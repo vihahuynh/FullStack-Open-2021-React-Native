@@ -15,6 +15,7 @@ export const RepositoryListContainer = ({ repositories }) => {
   const renderItem = ({ item }) => (
     <RepositoryItem testID="repoItem" item={item} />
   );
+
   const repositoryNodes = repositories
     ? repositories.edges.map((edge) => edge.node)
     : [];

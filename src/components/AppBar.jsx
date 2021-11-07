@@ -30,7 +30,7 @@ const AppBar = () => {
 
   const result = useQuery(GET_AUTHORIZED_USER);
   if (result.loading) return <Text>loading...</Text>;
-  const authorizedUser = result.data.authorizedUser;
+  const authorizedUser = result?.data?.authorizedUser;
 
   const handleSignout = () => {
     authStorage.removeAccessToken();

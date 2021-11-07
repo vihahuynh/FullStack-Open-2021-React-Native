@@ -74,6 +74,7 @@ describe("RepositoryList", () => {
         repositories.edges[len].node.forksCount < 1000
           ? repositories.edges[len].node.forksCount
           : `${(repositories.edges[len].node.forksCount / 1000).toFixed(1)}k`;
+
       const reviews =
         repositories.edges[len].node.reviewCount < 1000
           ? repositories.edges[len].node.reviewCount

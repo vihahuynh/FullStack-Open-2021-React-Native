@@ -1,4 +1,5 @@
 import React from "react";
+import { Text } from "react-native";
 import { useQuery } from "@apollo/client";
 import { GET_REPOSITORIES } from "../graphql/queries";
 
@@ -7,8 +8,8 @@ const useRepositories = () => {
     fetchPolicy: "cache-and-network",
   });
 
-  if (result.loading) return <div>loading...</div>;
-  const { repositories } = result.data;
+  if (result.loading) return <Text>loading...</Text>;
+  const { repositories } = result.data || [];
   return { repositories };
 };
 
