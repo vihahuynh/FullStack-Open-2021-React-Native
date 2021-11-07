@@ -63,12 +63,19 @@ const RepositoryItem = ({ item }) => {
           <Image
             style={styles.tinyLogo}
             source={{ uri: item.ownerAvatarUrl }}
+            testID="avatarUrl"
           />
         </View>
         <View style={styles.textContainer}>
-          <Text style={styles.darkText}>{item.fullName}</Text>
-          <Text style={styles.description}>{item.description}</Text>
-          <Text style={styles.language}>{item.language}</Text>
+          <Text style={styles.darkText} testID="fullName">
+            {item.fullName}
+          </Text>
+          <Text style={styles.description} testID="description">
+            {item.description}
+          </Text>
+          <Text style={styles.language} testID="language">
+            {item.language}
+          </Text>
         </View>
       </View>
 

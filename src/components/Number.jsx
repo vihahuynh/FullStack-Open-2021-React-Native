@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 const Number = ({ num, desc = "Stars" }) => {
   return (
     <View>
-      <Text style={styles.number}>
+      <Text style={styles.number} testID={desc}>
         {num < 1000 ? num : `${(num / 1000).toFixed(1)}k`}
       </Text>
       <Text>{desc}</Text>
