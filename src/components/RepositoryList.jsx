@@ -1,16 +1,8 @@
 import React from "react";
-import { FlatList, View, StyleSheet, Pressable } from "react-native";
+import { FlatList, Pressable } from "react-native";
 import { useHistory } from "react-router-native";
 import RepositoryItem from "./RepositoryItem";
 import useRepositories from "../hooks/useRepositories";
-
-const styles = StyleSheet.create({
-  separator: {
-    height: 10,
-  },
-});
-
-const ItemSeparator = () => <View style={styles.separator} />;
 
 export const RepositoryListContainer = ({ repositories }) => {
   const history = useHistory();
@@ -33,7 +25,6 @@ export const RepositoryListContainer = ({ repositories }) => {
   return (
     <FlatList
       data={repositoryNodes}
-      ItemSeparatorComponent={ItemSeparator}
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
     />

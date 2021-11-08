@@ -10,7 +10,9 @@ const RepositoryItem = ({ item, showLink = false }) => {
       padding: 10,
       backgroundColor: "white",
       paddingBottom: 20,
+      marginBottom: 10,
     },
+
     tinyLogo: {
       borderRadius: 10,
       marginRight: 20,
