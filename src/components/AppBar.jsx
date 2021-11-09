@@ -43,6 +43,11 @@ const AppBar = () => {
         <Link to="/">
           <Text style={styles.whiteText}>Repostories</Text>
         </Link>
+        {authorizedUser && (
+          <Link to="/review">
+            <Text style={styles.whiteText}>Create a review</Text>
+          </Link>
+        )}
         {authorizedUser ? (
           <Pressable onPress={handleSignout}>
             <Text style={styles.whiteText}>Sign Out</Text>

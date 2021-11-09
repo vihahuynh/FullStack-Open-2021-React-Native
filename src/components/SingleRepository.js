@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: "white",
     flexDirection: "row",
-    justifyContent: "space-between",
   },
 
   ratingContainer: {
