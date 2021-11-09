@@ -78,7 +78,7 @@ export const ReviewContainer = ({ onSubmit, message = "" }) => {
 };
 
 const Review = () => {
-  const [review, result] = useReview();
+  const [review] = useReview();
   const history = useHistory();
   const [message, setMessage] = useState("");
 
